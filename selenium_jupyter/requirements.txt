@@ -1,0 +1,8 @@
+jupyter
+pandas
+requests
+lxml
+selenium
+sqlalchemy
+sqlalchemy_utils
+psycopg2-binary

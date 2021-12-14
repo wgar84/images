@@ -1,0 +1,9 @@
+statsmodels
+sqlalchemy
+sqlalchemy_utils
+psycopg2_binary
+pandas
+geopandas
+descartes
+matplotlib
+tensorflow_probability
