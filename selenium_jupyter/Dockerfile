@@ -4,10 +4,15 @@ COPY requirements.txt .
 
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
+
 RUN groupadd -g 1000 jovyan
 RUN useradd -ms /bin/bash -u 1000 -g 1000 jovyan
 
 USER jovyan
+
+COPY utils/ /home/jovyan/utils
+
+ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/utils"
 
 WORKDIR /home/jovyan/app
 
@@ -21,7 +26,4 @@ RUN echo \
     "c.NotebookApp.password = u'sha1:0bff055a03ce:c09cde8bab532481515d631285948252f72e8cc5'" \
     >> /home/jovyan/.jupyter/jupyter_notebook_config.py
 
-EXPOSE 4444
-
-# CMD python test.py
 CMD jupyter notebook --no-browser --ip=0.0.0.0
