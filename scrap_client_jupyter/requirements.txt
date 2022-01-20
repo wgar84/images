@@ -8,3 +8,4 @@ sqlalchemy_utils
 psycopg2-binary
 bs4
 html5lib
+unidecode

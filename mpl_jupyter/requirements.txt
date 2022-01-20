@@ -1,0 +1,13 @@
+jupyter
+numpy
+scipy
+pandas
+sqlalchemy
+sqlalchemy_utils
+psycopg2-binary
+matplotlib
+geopandas
+descartes
+ipynb-py-convert
+unidecode
+
