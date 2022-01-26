@@ -1,0 +1,3 @@
+[submodule "ggfolha_api/ggfolha"]
+	path = ggfolha_api/ggfolha
+	url = git@github.com:deltafolha/ggfolha.git

@@ -10,4 +10,5 @@ geopandas
 descartes
 ipynb-py-convert
 unidecode
-
+pydot2
+networkx[default,extra]

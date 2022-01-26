@@ -1,18 +1,20 @@
-FROM python:latest
+FROM r-base:latest
 
 RUN apt update
-RUN apt install -y gdal-bin libgdal-dev pandoc texlive-xetex graphviz-dev
+RUN apt install -y gdal-bin libgdal-dev pandoc texlive-xetex graphviz-dev python3 python3-pip
 
 COPY requirements.txt .
 
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
-COPY mod /usr/local/share/jupyter/nbconvert/templates/mod
-
-RUN groupadd -g 1000 jovyan
 RUN useradd -ms /bin/bash -u 1000 -g 1000 jovyan
 
-# COPY bin/* /usr/local/bin/
+COPY requirements.R .
+
+RUN mkdir ggfolha
+COPY ggfolha/* ./ggfolha/
+
+RUN R CMD requirements.R
 
 USER jovyan
 
@@ -20,8 +22,11 @@ USER jovyan
 #ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/utils"
 
 WORKDIR /home/jovyan/app
-ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/app"
-COPY bin/* ./
+# ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/app"
+# COPY bin/* ./
+
+
+# COPY bin/* /usr/local/bin/
 
 RUN jupyter notebook --generate-config
 
