@@ -2,7 +2,7 @@ FROM r-base:latest
 
 RUN apt update
 RUN apt install -y gdal-bin libgdal-dev pandoc texlive-xetex graphviz-dev python3 python3-pip \
-    r-cran-devtools r-cran-ggplot2 r-cran-scales r-cran-irkernel r-cran-plumber
+    r-cran-devtools r-cran-ggplot2 r-cran-scales r-cran-irkernel r-cran-plumber curl
 
 COPY requirements.txt .
 RUN python3 -m pip install --no-cache-dir -r requirements.txt
@@ -13,6 +13,9 @@ RUN python3 -m pip install --no-cache-dir -r requirements.txt
 COPY requirements.R .
 COPY token .
 RUN Rscript requirements.R
+
+COPY fontes/* /usr/share/fonts/
+RUN fc-cache -fv
 
 USER docker
 WORKDIR /home/docker/app

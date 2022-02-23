@@ -2,6 +2,7 @@ jupyter
 numpy
 scipy
 pandas
+requests
 sqlalchemy
 sqlalchemy_utils
 psycopg2-binary

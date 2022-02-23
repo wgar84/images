@@ -1,7 +1,8 @@
-FROM python:latest
+FROM python:3.8
 
+# RUN apt-add-repository ppa:ubuntugis/ppa && apt update
 RUN apt update
-RUN apt install -y gdal-bin libgdal-dev pandoc texlive-xetex graphviz-dev
+RUN apt install -y gdal-bin libgdal-dev pandoc texlive-xetex graphviz-dev # python3-fiona
 
 COPY requirements.txt .
 
@@ -12,12 +13,12 @@ COPY mod /usr/local/share/jupyter/nbconvert/templates/mod
 RUN groupadd -g 1000 jovyan
 RUN useradd -ms /bin/bash -u 1000 -g 1000 jovyan
 
-# COPY bin/* /usr/local/bin/
+#COPY bin/* /usr/local/bin/
 
 USER jovyan
 
 #COPY utils/ /home/jovyan/utils
-#ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/utils"
+#ENV PYTHONPATH "${PYTHONPATH}:/usr/local/bin"
 
 WORKDIR /home/jovyan/app
 ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/app"
