@@ -11,5 +11,6 @@ geopandas
 descartes
 ipynb-py-convert
 unidecode
+setuptools==58
 pydot2
 networkx[default,extra]

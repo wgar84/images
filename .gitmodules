@@ -1,3 +1,6 @@
 [submodule "ggfolha_api/ggfolha"]
 	path = ggfolha_api/ggfolha
 	url = git@github.com:deltafolha/ggfolha.git
+[submodule "postgis_brasil/geodata-br"]
+	path = postgis_brasil/geodata-br
+	url = https://github.com/tbrugz/geodata-br.git

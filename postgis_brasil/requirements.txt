@@ -1,0 +1,10 @@
+utils
+jupyter
+pandas
+geopandas
+descartes
+psycopg2-binary
+sqlalchemy
+sqlalchemy_utils
+geoalchemy2
+unidecode

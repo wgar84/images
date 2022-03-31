@@ -1,0 +1,27 @@
+version: "3.9"
+services:
+  
+  postgis_feeder:
+    depends_on:
+      - postgis_brasil
+    image: postgis_feeder
+    ports:
+      - "62000:8888"
+    volumes:
+      - ./geodata-br:/home/jovyan/app/geodata-br:Z
+      - ./data:/home/jovyan/app/data:Z
+      - ./bin:/home/jovyan/app/bin:Z
+      - ./lib:/home/jovyan/app/lib:Z
+    command: jupyter notebook --no-browser --ip=0.0.0.0
+  
+  postgis_brasil:
+    image: postgis/postgis:latest
+    volumes:
+      - postgis_brasil:/var/lib/postgresql/data:rw
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+volumes:
+  postgis_brasil:
+    name: postgis_brasil
+    external: true
