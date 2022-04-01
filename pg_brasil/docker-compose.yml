@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  
+  pg_build:
+    depends_on:
+      - pg_brasil
+    image: mpl_jupyter
+    ports:
+      -  62000:8888
+    volumes:
+      - ./geodata-br:/home/jovyan/app/geodata-br:Z
+      - ./data:/home/jovyan/app/data:Z
+      - ./bin:/home/jovyan/app/bin:Z
+      - ./lib:/home/jovyan/app/lib:Z
+    command: wait-for-it.sh pg_brasil:5432 -- python3 bin/feed_data.py
+        # jupyter notebook --ip=0.0.0.0 --no-browser
+  
+  pg_brasil:
+    image: postgis/postgis:latest
+    volumes:
+      - pg_brasil:/var/lib/postgresql/data:rw
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+
+volumes:
+  pg_brasil:
+    name: pg_brasil
+    external: true

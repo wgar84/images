@@ -4,3 +4,6 @@
 [submodule "postgis_brasil/geodata-br"]
 	path = postgis_brasil/geodata-br
 	url = https://github.com/tbrugz/geodata-br.git
+[submodule "pg_brasil/geodata-br"]
+	path = pg_brasil/geodata-br
+	url = https://github.com/wgar84/geodata-br.git
