@@ -9,6 +9,7 @@ psycopg2-binary
 matplotlib
 geopandas
 descartes
+geoalchemy2
 ipynb-py-convert
 unidecode
 setuptools==58

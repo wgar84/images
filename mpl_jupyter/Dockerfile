@@ -14,6 +14,7 @@ RUN groupadd -g 1000 jovyan
 RUN useradd -ms /bin/bash -u 1000 -g 1000 jovyan
 
 #COPY bin/* /usr/local/bin/
+COPY wait-for-it.sh /usr/local/bin
 
 USER jovyan
 
