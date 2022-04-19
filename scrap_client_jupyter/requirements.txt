@@ -1,5 +1,6 @@
 jupyter
 pandas
+openpyxl
 requests
 lxml
 selenium
