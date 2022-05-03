@@ -17,7 +17,7 @@ COPY package.json .
 COPY package-lock.json .
  
 RUN npm install
- 
+
 USER node
 
 WORKDIR /home/node/app
