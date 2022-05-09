@@ -16,3 +16,5 @@ unidecode
 setuptools==58
 pydot2
 networkx[default,extra]
+geobr
+pyunpack
