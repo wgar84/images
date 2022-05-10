@@ -1,8 +1,8 @@
-FROM python:3.8
+FROM python:3.9
 
-# RUN apt-add-repository ppa:ubuntugis/ppa && apt update
+# RUN apt-add-repostory ppa:ubuntugis/ppa && apt update
 RUN apt update
-RUN apt install -y gdal-bin libgdal-dev pandoc texlive-xetex graphviz-dev # python3-fiona
+RUN apt install -y --fix-missing gdal-bin libgdal-dev pandoc texlive-xetex graphviz-dev lzma-dev liblzma-dev p7zip-full
 
 COPY requirements.txt .
 
