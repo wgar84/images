@@ -2,8 +2,12 @@ statsmodels
 sqlalchemy
 sqlalchemy_utils
 psycopg2_binary
+unidecode
 pandas
 geopandas
 descartes
 matplotlib
-tensorflow_probability
+tensorflow-probability
+tensorflow-graphics-gpu
+OpenEXR
+colabtools

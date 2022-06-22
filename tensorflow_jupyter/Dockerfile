@@ -1,6 +1,24 @@
-FROM tensorflow/tensorflow:nightly-gpu-py3-jupyter
+FROM tensorflow/tensorflow:2.9.1-gpu-jupyter
 
 COPY requirements.txt .
+
+# RUN rm /etc/apt/sources.list.d/cuda.list
+
+# RUN rm /etc/apt/sources.list.d/nvidia-ml.list
+
+# RUN apt-key del 7fa2af80
+
+# RUN apt update && apt install -y --no-install-recommends wget
+
+# RUN wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/cuda-keyring_1.0-1_all.deb
+
+# RUN dpkg -i cuda-keyring_1.0-1_all.deb
+
+RUN apt update -y
+
+# RUN DEBIAN_FRONTEND=noninteractive apt install cuda libopenexr-dev -y
+RUN DEBIAN_FRONTEND=noninteractive apt install libopenexr-dev -y
+
 
 RUN python -m pip install --no-cache-dir -r requirements.txt
 
