@@ -10,3 +10,4 @@ psycopg2-binary
 bs4
 html5lib
 unidecode
+discord.py
