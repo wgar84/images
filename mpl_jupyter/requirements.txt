@@ -19,3 +19,4 @@ networkx[default,extra]
 geobr
 pyunpack
 patool
+gspread_pandas

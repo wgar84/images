@@ -1,5 +1,5 @@
 #!/usr/bin/bash
 
 docker build . \
-    --build-arg token='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' \
+    --build-arg token='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' \
     -t eleicoes_2022

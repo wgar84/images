@@ -18,12 +18,14 @@ COPY wait-for-it.sh /usr/local/bin
 
 USER jovyan
 
-#COPY utils/ /home/jovyan/utils
+WORKDIR /home/jovyan
+RUN mkdir .config
+RUN mkdir .config/gspread_pandas
+COPY google_secret.json .config/gspread_pandas
 #ENV PYTHONPATH "${PYTHONPATH}:/usr/local/bin"
 
 WORKDIR /home/jovyan/app
 ENV PYTHONPATH "${PYTHONPATH}:/home/jovyan/app"
-COPY bin/* ./
 
 RUN jupyter notebook --generate-config
 
